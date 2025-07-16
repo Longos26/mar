@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Portfolio Design System */
+
+@layer base {
+  :root {
+    /* Dark Portfolio Theme */
+    --primary-bg: 240 10% 4%;
+    --secondary-bg: 240 8% 10%;
+    --card-bg: 240 6% 16%;
+    --accent-color: 239 84% 67%;
+    --accent-hover: 239 84% 60%;
+    --text-primary: 0 0% 100%;
+    --text-secondary: 240 5% 65%;
+    --text-muted: 240 5% 45%;
+    --border-color: 240 6% 15%;
+    
+    /* Tech Colors */
+    --js-color: 51 100% 54%;
+    --ts-color: 213 87% 51%;
+    --react-color: 193 82% 68%;
+    --node-color: 120 61% 44%;
+    --mongodb-color: 120 61% 50%;
+    --mysql-color: 211 54% 51%;
+    
+    /* Gradients */
+    --gradient-1: linear-gradient(135deg, hsl(239 84% 67%) 0%, hsl(262 83% 60%) 100%);
+    --gradient-2: linear-gradient(135deg, hsl(320 85% 78%) 0%, hsl(340 82% 66%) 100%);
+    --gradient-3: linear-gradient(135deg, hsl(194 100% 65%) 0%, hsl(180 100% 50%) 100%);
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--accent-color) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--accent-color) / 0.4);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Base colors for compatibility */
+    --background: var(--primary-bg);
+    --foreground: var(--text-primary);
+    --card: var(--secondary-bg);
+    --card-foreground: var(--text-primary);
+    --popover: var(--secondary-bg);
+    --popover-foreground: var(--text-primary);
+    --primary: var(--accent-color);
+    --primary-foreground: var(--text-primary);
+    --secondary: var(--secondary-bg);
+    --secondary-foreground: var(--text-primary);
+    --muted: var(--card-bg);
+    --muted-foreground: var(--text-muted);
+    --accent: var(--accent-color);
+    --accent-foreground: var(--text-primary);
+    --destructive: 0 84% 60%;
+    --destructive-foreground: var(--text-primary);
+    --border: var(--border-color);
+    --input: var(--border-color);
+    --ring: var(--accent-color);
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--primary-bg));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--accent-color));
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* Portfolio specific components */
+  .portfolio-gradient-text {
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .portfolio-hero-gradient {
+    background: radial-gradient(ellipse at center, hsl(var(--accent-color) / 0.1) 0%, transparent 70%);
+  }
+  
+  .portfolio-card {
+    background: hsl(var(--secondary-bg));
+    border: 1px solid hsl(var(--border-color));
+    transition: var(--transition-smooth);
+  }
+  
+  .portfolio-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .portfolio-glassmorphism {
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border-color));
+  }
+  
+  .portfolio-tech-tag {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .tech-javascript {
+    background: hsl(var(--js-color) / 0.2);
+    color: hsl(var(--js-color));
+  }
+  
+  .tech-typescript {
+    background: hsl(var(--ts-color) / 0.2);
+    color: hsl(var(--ts-color));
+  }
+  
+  .tech-react {
+    background: hsl(var(--react-color) / 0.2);
+    color: hsl(var(--react-color));
+  }
+  
+  .tech-nodejs {
+    background: hsl(var(--node-color) / 0.2);
+    color: hsl(var(--node-color));
+  }
+  
+  .tech-mongodb {
+    background: hsl(var(--mongodb-color) / 0.2);
+    color: hsl(var(--mongodb-color));
+  }
+  
+  .tech-mysql {
+    background: hsl(var(--mysql-color) / 0.2);
+    color: hsl(var(--mysql-color));
+  }
+  
+  .tech-other {
+    background: hsl(var(--accent-color) / 0.2);
+    color: hsl(var(--accent-color));
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .fade-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-out;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
